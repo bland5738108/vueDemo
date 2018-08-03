@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    var arr=[1,2,45,45,33,11,11,34,133,1,32,1312,424];
+    //数组去重方法一
+    function removeArr(arr){
+        for(var i=0;i<arr.length-1;i++){
+            for(var j=i+1;j<arr.length;j++){
+                if(arr[i]==arr[j]){
+                    arr.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        return arr;
+    }
+    //数组去重方法二
+    function removalArr(arr){
+        var res=[];
+        for(var i=0;i<arr.length;i++){
+            if(res.indexOf(arr[i])==-1){
+                res.push(arr[i]);
+            }
+        }
+        return res;
+    }
+    //数组去重方法三
+    function removalArrIndexOf2(arr){
+        for(var i=0;i<arr.length;i++){
+            if(arr.indexOf(arr[i]) !=i){
+                arr.splice(i,1);
+                i--;
+            }
+        }
+        return arr;
+    }
+    function removealARR(arr){
+        var end;
+        arr.sort();
+        end=arr[0];
+        console.log(end)
+        for(var i=1;i<arr.length;i++){
+            if(arr[i]==end){
+                arr.splice(i,1);
+                i--;
+            }else{
+                end=arr[i]
+            }
+            console.log(arr);
+        }
+        return arr;
+    }
+    document.write(removealARR(arr));
+    //var arr2=removeArr(arr);
+    //document.write(arr2);
+  </script>  
+</body>
+</html>
